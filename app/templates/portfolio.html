@@ -1,0 +1,36 @@
+{% load static %}
+
+<section class="section" id="loyiha">
+    <div class="container">
+        <h6 class="section-title text-center mb-0">Portfolio</h6>
+        <h6 class="section-subtitle mb-5 text-center">Loyihalarim</h6>
+        <div class="row">
+            {% for a in Portfolio %}
+            <div class="col-md-4 my-3 my-md-0">
+                  
+                <div class="card"> 
+                    
+                                   
+                    <div class="card-body">                      
+                        <div style="height: 200px; width: 300px;" class="media align-items-center mb-3">
+                            <img class="mr-3" src="{{ a.rasm.url }}" alt="">
+                            <div class="media-body">
+                                <h6 class="mt-1 mb-0">{{ a.nomi }}</h6><br>
+                                <p>{{ a.malumot }}</p>
+                                <!-- <a href="{{a.link}}" >link</a> -->
+                                <div class="form-group col-12 mb-0">
+                                    <a href="{{a.link}}" style="text-align: center;"><button type="submit"  class="btn btn-primary rounded w-md mt-3">Yuborish</button></a>
+                                </div>
+                            </div>
+                            
+                        </div>                      
+                    </div>
+                                      
+                </div>   
+                        
+            </div>
+            {% endfor %}  
+        </div>
+    </div>
+
+</section>

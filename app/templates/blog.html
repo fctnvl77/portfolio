@@ -1,0 +1,44 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <link rel="icon" href="./../static/assets/img/img1.png" type="image/icon type">
+    <title>Portfolio</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + LeadMark main styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
+</head>
+
+
+
+
+{% block content %}
+<section class="section" id="blog">
+    <div class="container">
+        <h6 class="section-title mb-0 text-center">Blog</h6>
+        <h6 class="section-subtitle mb-5 text-center">Mening blogim</h6>
+        
+        <div class="row">
+            {% for x in Blog %}
+            <div class="col-md-4">               
+                <div class="card border-0 mb-4">
+                    <img style="width: 600px; height: 300px;" src="{{ x.rasm.url }}" alt="" class="card-img-top w-100">
+                    <div class="card-body">
+                        <h6 style="color: black;" class="card-title">Blog Nomi: {{ x.mavzu }}</h6>
+                        <p>Blog raqami : {{ x.blog_raqam }}</p>
+                        <p>Blog haqida : {{ x.batafsil }}</p>
+                        <div style="text-align: center;" class="form-group col-6 mb-0">
+                            <button style="text-align: center;" type="submit" class="btn btn-primary rounded w-md mt-3">Batafsil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
+    

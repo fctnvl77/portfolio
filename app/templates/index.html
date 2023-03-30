@@ -1,0 +1,477 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <link rel="icon" href="./../static/assets/img/img1.png" type="image/icon type">
+    <title>Portfolio</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + LeadMark main styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- page Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+
+            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Men haqimda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#loyiha">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#xizmat">Xizmatlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Bog'lanish</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">admin</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">
+        <div class="overlay">
+            
+            {% for i in Local %}              
+            <h1 class="subtitle">Salom, men:</h1>
+            <h2 style="text-align: center;" class="title">{{ i.ism }}</h2>
+            <h6>Python dasturchiman</h6>
+            {% endfor %}
+        </div>
+        <div class="shape">
+            <svg viewBox="0 0 1500 200">
+                <path
+                    d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z" />
+            </svg>
+        </div>
+        <div class="mouse-icon">
+            <div class="wheel"></div>
+        </div>
+    </header>
+    <!-- End Of Page Header -->
+
+    <!-- Service Section -->
+
+    <!-- End OF Service Section -->
+
+    <!-- About Section -->
+
+    {% block service %}
+
+
+
+
+
+    {% endblock service %}
+
+    <section class="section" id="about">
+
+        <div class="container">
+            {% for i in Local %}
+            <div class="row justify-content-between">
+
+                <div style='text-align:center' class="col-md-4 pr-md-5 mb-4 mb-md-0">
+                    <h6 class="section-title mb-0">Batafsil</h6>
+                    <p>{{i.men_xaqimda}}</p>
+                    <div style="text-align: center;" class="form-group col-6 mb-0">
+                        <button type="submit" class="btn btn-primary rounded w-md mt-3">CV resume</button>
+                    </div>
+                </div>
+
+                <div class="col-md-4 pl-md-5">
+                    <div class="row">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4">
+                        </div>
+                        <div class="col-6 mt-4">
+                            <h6 style="font-size: 20px;" class="section-title mb-0">Men haqimda</h6>
+                            <p>Mening ismim: <b><span>{{ i.ism }}<span></b></p>
+                            <p>Mening tug'ilgan yilim <b><span>{{ i.yil }}<span></b><br>
+                            </p>
+
+                        </div>
+                        <div style="text-align: center;" class="col-6 mt-4">
+                            <img style="width: 200px; height: 200px;" src="{{ i.rasm.url }}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </section>
+
+    <!-- Portfolio Section -->
+    {% comment %} <section id="portfolio" class="section portfolio-section">
+        <div class="container">
+            <h6 class="section-title text-center">Ko'nikmalarim</h6>
+            <div class="filters">
+                <a href="#" data-filter=".new" class="active">
+                    Loyihalar
+                </a>
+                <a href="#" data-filter=".advertising">
+                    Jamoa
+                </a>
+                <a href="#" data-filter=".branding">
+                    Tajribalar
+                </a>
+            </div>
+            <div class="portfolio-container">
+                <div class="col-md-6 col-lg-4 web new">
+                    <div class="portfolio-item">
+                        <img src="" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            {% for a in Skill %}
+                            <a class="img-popup" href="assets/imgs/web-1.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">Nomi: {{ a.name }}</h6>
+                                <p class="subtitle">Expedita: {{ a.izoh }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 web new">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/web-2.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/web-2.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">WEB</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 advertising new">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/advertising-2.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/advertising-2.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">ADVERSTISING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 web">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/web-4.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/web-4.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">WEB</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 advertising">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/advertising-1.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/advertising-1.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">ADVERSITING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 web new">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/web-3.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/web-3.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">WEB</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 advertising new">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/advertising-3.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/advertising-3.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">ADVERSITING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 advertising new">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/advertising-4.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/advertising-4.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">ADVERTISING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-lg-4 branding new">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/branding-1.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/branding-1.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">BRANDING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 branding">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/branding-2.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/branding-2.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">BRANDING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 branding new">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/branding-3.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/branding-3.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">BRANDING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 branding">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/branding-4.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/branding-4.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">BRANDING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 branding">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/branding-5.jpg" class="img-fluid"
+                            alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                        <div class="content-holder">
+                            <a class="img-popup" href="assets/imgs/branding-5.jpg"></a>
+                            <div class="text-holder">
+                                <h6 class="title">BRANDING</h6>
+                                <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <!-- End of portfolio section -->
+
+    <!-- Blog Section -->
+
+    <section id="xizmat" class="section pt-0">
+        <div class="container">
+            <h6 class="section-title text-center">Xizmatlar</h6>
+            <h6 class="section-subtitle text-center mb-5 pb-3">Mening ko'nikmalarim:</h6>
+            <div class="row">
+                
+                {% for i in Local %}
+                    
+                
+                    
+                <div class="col-md-3">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">                           
+                            <h5 class="card-title mt-3">Tajriba oy<h5>
+                            <small class="text-primary font-weight-bold">{{ i.tajriba_yil }} oy</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+
+                            <h5 class="card-title mt-3">Loyihalar soni <h5>
+                            <small class="text-primary font-weight-bold">{{ i.loyihalar_soni }} ta</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+
+                            <h5 class="card-title mt-3">Yutuqlar soni <h5>
+                            <small class="text-primary font-weight-bold">{{ i.yutuqlar_soni }} ta</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+
+                            <h5 class="card-title mt-3"> Umumiy ish vaqt <h5>
+                            <small class="text-primary font-weight-bold">{{ i.ish_vaqt }} soat</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    </section>
+
+    <!-- Testmonial Section -->
+
+    {% include 'portfolio.html' %}
+    
+    
+    <!-- End of Testmonial Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="section has-img-bg pb-0">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5 my-3">
+                    <h6 class="mb-0">Telefon:</h6>
+                    <p class="mb-4">+99899 000 00 00 </p>
+
+                    <h6 class="mb-0">Manzil</h6>
+                    <p class="mb-4">180100 Qashqadaryo viloyati Qarshi shahri</p>
+
+                    <h6 class="mb-0">Email</h6>
+                    <p class="mb-0">muhammadziyo@gmail.com</p>
+                    <p></p>
+                </div>
+                <div class="col-md-7">
+                    <form>
+                        <h4 class="mb-4">Bog'lanish</h4>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <input type="text" class="form-control text-white rounded-0 bg-transparent" name="name"
+                                    placeholder="Ism">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="email" class="form-control text-white rounded-0 bg-transparent"
+                                    name="Email" placeholder="Email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="text" class="form-control text-white rounded-0 bg-transparent"
+                                    name="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea name="message" id="" cols="30" rows="4"
+                                    class="form-control text-white rounded-0 bg-transparent"
+                                    placeholder="habar"></textarea>
+
+                            </div>
+                            <div class="form-group col-12 mb-0">
+                                <button type="submit" class="btn btn-primary rounded w-md mt-3">Yuborish</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Page Footer -->
+            <footer class="mt-5 py-4 border-top border-secondary">
+                <p class="mb-0 small">&copy;
+                    <script>document.write(new Date().getFullYear())</script>, Python dasturchi: <a
+                        href="tel:+998990000000" target="_blank">muhammadziyo Sattorov</a> tomonidan yaratilgan
+                </p>
+
+                <div class="socials">
+                    <ul>
+                        <li><a href="https://t.me/muhammadziyol"><i class="fa fa-telegram" aria-hidden="true">Telegram</i></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100089691205204"><i class="fa fa-facebook" aria-hidden="true">Facebook</i></a></li>
+                        <li><a href="https://www.linkedin.com/feed/"><i class="fa fa-linkedin" aria-hidden="true">Linked in</i></a></li>
+                        <li><a href="https://github.com/fctnvl77"><i class="fa fa-github" aria-hidden="true">Github</i></a></li>
+
+                     
+                    </ul>
+                  </div>
+            </footer>
+            <!-- End of Page Footer -->
+        </div>
+    </section>
+
+    <!-- core  -->
+    <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js'%}"></script>
+
+    <!-- Isotope -->
+    <script src="{% static 'assets/vendors/isotope/isotope.pkgd.js' %}"></script>
+
+    <!-- LeadMark js -->
+    <script src="{% static 'assets/js/leadmark.js' %}"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
